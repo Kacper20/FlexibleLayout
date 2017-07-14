@@ -25,3 +25,4 @@ Carthage/Checkouts
 Carthage/Build
 .idea
 Podfile.lock
+contents.xcworkspacedata
