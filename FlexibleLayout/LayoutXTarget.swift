@@ -61,4 +61,8 @@ public struct LayoutXTarget {
         case .centerXWithinMargins: return view.layoutMarginsGuide.centerXAnchor
         }
     }
+
+    public func to(_ other: LayoutXTarget) -> HorizontalFlexibleSpaceConstructable {
+        return HorizontalFlexibleSpaceConstructable(from: self, to: other)
+    }
 }

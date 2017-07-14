@@ -14,6 +14,9 @@
 		BB26CFDD1F193EF40062749D /* View+LayoutTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */; };
 		BB26CFDF1F1943FD0062749D /* LayoutXTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */; };
 		BB26CFE11F1944030062749D /* LayoutYTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE01F1944030062749D /* LayoutYTarget.swift */; };
+		BB26CFE41F1946710062749D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE31F1946710062749D /* README.md */; };
+		BB26CFE61F19469F0062749D /* HorizontalFlexibleSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE51F19469F0062749D /* HorizontalFlexibleSpace.swift */; };
+		BB26CFE81F1946CA0062749D /* VerticalFlexibleSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE71F1946CA0062749D /* VerticalFlexibleSpace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+LayoutTargets.swift"; sourceTree = "<group>"; };
 		BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutXTarget.swift; sourceTree = "<group>"; };
 		BB26CFE01F1944030062749D /* LayoutYTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutYTarget.swift; sourceTree = "<group>"; };
+		BB26CFE31F1946710062749D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BB26CFE51F19469F0062749D /* HorizontalFlexibleSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalFlexibleSpace.swift; sourceTree = "<group>"; };
+		BB26CFE71F1946CA0062749D /* VerticalFlexibleSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalFlexibleSpace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 		BB26CFB21F193C700062749D = {
 			isa = PBXGroup;
 			children = (
+				BB26CFE31F1946710062749D /* README.md */,
 				BB26CFBE1F193C700062749D /* FlexibleLayout */,
 				BB26CFC91F193C710062749D /* FlexibleLayoutTests */,
 				BB26CFBD1F193C700062749D /* Products */,
@@ -85,6 +92,8 @@
 				BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */,
 				BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */,
 				BB26CFE01F1944030062749D /* LayoutYTarget.swift */,
+				BB26CFE51F19469F0062749D /* HorizontalFlexibleSpace.swift */,
+				BB26CFE71F1946CA0062749D /* VerticalFlexibleSpace.swift */,
 			);
 			path = FlexibleLayout;
 			sourceTree = "<group>";
@@ -229,7 +238,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB26CFDD1F193EF40062749D /* View+LayoutTargets.swift in Sources */,
+				BB26CFE61F19469F0062749D /* HorizontalFlexibleSpace.swift in Sources */,
 				BB26CFD71F193E040062749D /* FlexibleLayout.swift in Sources */,
+				BB26CFE41F1946710062749D /* README.md in Sources */,
+				BB26CFE81F1946CA0062749D /* VerticalFlexibleSpace.swift in Sources */,
 				BB26CFE11F1944030062749D /* LayoutYTarget.swift in Sources */,
 				BB26CFDF1F1943FD0062749D /* LayoutXTarget.swift in Sources */,
 			);

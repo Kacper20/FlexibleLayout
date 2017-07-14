@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LayoutYTarget {
+public struct LayoutYTarget {
 
     let view: UIView
     let kind: Kind
@@ -54,5 +54,9 @@ struct LayoutYTarget {
         case .firstBaseline: return view.firstBaselineAnchor
         case .lastBaseline: return view.lastBaselineAnchor
         }
+    }
+
+    public func to(_ other: LayoutYTarget) -> VerticalFlexibleSpaceConstructable {
+        return VerticalFlexibleSpaceConstructable(from: self, to: other)
     }
 }
