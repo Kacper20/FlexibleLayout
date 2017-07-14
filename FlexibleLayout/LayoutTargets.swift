@@ -18,11 +18,11 @@ public struct LayoutXTarget {
         case right
         case leading
         case trailing
+        case centerX
         case leftMargin
         case rightMargin
         case leadingMargin
         case trailingMargin
-        case centerX
         case centerXWithinMargins
     }
 
@@ -72,6 +72,11 @@ struct LayoutYTarget {
         case top
         case bottom
         case centerY
+        case topMargin
+        case bottomMargin
+        case centerYWithinMargins
+        case firstBaseline
+        case lastBaseline
     }
 
     init(kind: Kind, view: UIView) {
@@ -84,6 +89,11 @@ struct LayoutYTarget {
         case .top: return .top
         case .bottom: return .bottom
         case .centerY: return .centerY
+        case .topMargin: return .topMargin
+        case .bottomMargin: return .bottomMargin
+        case .centerYWithinMargins: return .centerYWithinMargins
+        case .firstBaseline: return .firstBaseline
+        case .lastBaseline: return .lastBaseline
         }
     }
 
@@ -93,6 +103,11 @@ struct LayoutYTarget {
         case .top: return view.topAnchor
         case .bottom: return view.bottomAnchor
         case .centerY: return view.centerYAnchor
+        case .topMargin: return view.layoutMarginsGuide.topAnchor
+        case .bottomMargin: return view.layoutMarginsGuide.bottomAnchor
+        case .centerYWithinMargins: return view.layoutMarginsGuide.centerYAnchor
+        case .firstBaseline: return view.firstBaselineAnchor
+        case .lastBaseline: return view.lastBaselineAnchor
         }
     }
 }
