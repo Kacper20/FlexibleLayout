@@ -40,6 +40,7 @@ struct ConstraintsHelpers {
         activateConstraint(fromView: view, toView: space.from.view, fromAttribute: .centerX, toAttribute: .centerX)
         activateConstraint(fromView: view, toView: from.view, fromAttribute: .top, toAttribute: from.attribute)
         activateConstraint(fromView: view, toView: to.view, fromAttribute: .bottom, toAttribute: to.attribute)
+
         return view
     }
 
@@ -50,56 +51,12 @@ struct ConstraintsHelpers {
         let view = UIView()
         container.addSubview(view)
         view.backgroundColor = .clear
-
-        NSLayoutConstraint(
-            item: view,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: container,
-            attribute: .width,
-            multiplier: 1.0,
-            constant: 0.0
-            ).isActive = true
-
-        NSLayoutConstraint(
-            item: view,
-            attribute: .centerX,
-            relatedBy: .equal,
-            toItem: space.from.view,
-            attribute: .centerX,
-            multiplier: 1.0,
-            constant: 0.0
-            ).isActive = true
-
-        NSLayoutConstraint(
-            item: view,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: space.from.view,
-            attribute: space.from.attribute,
-            multiplier: 1.0,
-            constant: 0.0
-            ).isActive = true
-
-        NSLayoutConstraint(
-            item: view,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: space.to.view,
-            attribute: space.to.attribute,
-            multiplier: 1.0,
-            constant: 0.0
-            ).isActive = true
-
-        NSLayoutConstraint(
-            item: view,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: container,
-            attribute: .width,
-            multiplier: 1.0,
-            constant: 0.0
-            ).isActive = true
+        let from = space.from
+        let to = space.to
+        activateConstraint(fromView: view, toView: container, fromAttribute: .height, toAttribute: .height)
+        activateConstraint(fromView: view, toView: space.from.view, fromAttribute: .centerY, toAttribute: .centerY)
+        activateConstraint(fromView: view, toView: from.view, fromAttribute: .leading, toAttribute: from.attribute)
+        activateConstraint(fromView: view, toView: to.view, fromAttribute: .trailing, toAttribute: to.attribute)
         
         return view
     }
