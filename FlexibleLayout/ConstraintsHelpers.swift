@@ -57,7 +57,7 @@ struct ConstraintsHelpers {
         activateConstraint(fromView: view, toView: space.from.view, fromAttribute: .centerY, toAttribute: .centerY)
         activateConstraint(fromView: view, toView: from.view, fromAttribute: .leading, toAttribute: from.attribute)
         activateConstraint(fromView: view, toView: to.view, fromAttribute: .trailing, toAttribute: to.attribute)
-        
+
         return view
     }
 }
