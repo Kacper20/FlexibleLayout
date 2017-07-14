@@ -11,8 +11,9 @@
 		BB26CFCB1F193C710062749D /* FlexibleLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFCA1F193C710062749D /* FlexibleLayoutTests.swift */; };
 		BB26CFCD1F193C710062749D /* FlexibleLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = BB26CFBF1F193C700062749D /* FlexibleLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB26CFD71F193E040062749D /* FlexibleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFD61F193E040062749D /* FlexibleLayout.swift */; };
-		BB26CFDB1F193E3F0062749D /* LayoutTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDA1F193E3F0062749D /* LayoutTargets.swift */; };
 		BB26CFDD1F193EF40062749D /* View+LayoutTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */; };
+		BB26CFDF1F1943FD0062749D /* LayoutXTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */; };
+		BB26CFE11F1944030062749D /* LayoutYTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE01F1944030062749D /* LayoutYTarget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +34,9 @@
 		BB26CFCA1F193C710062749D /* FlexibleLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleLayoutTests.swift; sourceTree = "<group>"; };
 		BB26CFCC1F193C710062749D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB26CFD61F193E040062749D /* FlexibleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleLayout.swift; sourceTree = "<group>"; };
-		BB26CFDA1F193E3F0062749D /* LayoutTargets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTargets.swift; sourceTree = "<group>"; };
 		BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+LayoutTargets.swift"; sourceTree = "<group>"; };
+		BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutXTarget.swift; sourceTree = "<group>"; };
+		BB26CFE01F1944030062749D /* LayoutYTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutYTarget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 				BB26CFBF1F193C700062749D /* FlexibleLayout.h */,
 				BB26CFC01F193C700062749D /* Info.plist */,
 				BB26CFD61F193E040062749D /* FlexibleLayout.swift */,
-				BB26CFDA1F193E3F0062749D /* LayoutTargets.swift */,
 				BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */,
+				BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */,
+				BB26CFE01F1944030062749D /* LayoutYTarget.swift */,
 			);
 			path = FlexibleLayout;
 			sourceTree = "<group>";
@@ -210,7 +213,8 @@
 			files = (
 				BB26CFDD1F193EF40062749D /* View+LayoutTargets.swift in Sources */,
 				BB26CFD71F193E040062749D /* FlexibleLayout.swift in Sources */,
-				BB26CFDB1F193E3F0062749D /* LayoutTargets.swift in Sources */,
+				BB26CFE11F1944030062749D /* LayoutYTarget.swift in Sources */,
+				BB26CFDF1F1943FD0062749D /* LayoutXTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
