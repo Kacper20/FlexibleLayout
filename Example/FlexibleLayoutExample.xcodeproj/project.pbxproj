@@ -16,6 +16,7 @@
 		BB26D00E1F195EAD0062749D /* ViewInjectableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26D00D1F195EAD0062749D /* ViewInjectableViewController.swift */; };
 		BB289B931F1965E5007C4232 /* VerticalDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289B921F1965E5007C4232 /* VerticalDistributionView.swift */; };
 		BBE199E81F19722A00D80A31 /* HorizontalDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE199E71F19722A00D80A31 /* HorizontalDistributionView.swift */; };
+		BBE199EA1F19770E00D80A31 /* TwoViewsCenteredHorizontallyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE199E91F19770E00D80A31 /* TwoViewsCenteredHorizontallyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		BB26D00D1F195EAD0062749D /* ViewInjectableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInjectableViewController.swift; sourceTree = "<group>"; };
 		BB289B921F1965E5007C4232 /* VerticalDistributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalDistributionView.swift; sourceTree = "<group>"; };
 		BBE199E71F19722A00D80A31 /* HorizontalDistributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalDistributionView.swift; sourceTree = "<group>"; };
+		BBE199E91F19770E00D80A31 /* TwoViewsCenteredHorizontallyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewsCenteredHorizontallyView.swift; sourceTree = "<group>"; };
 		EBC4940B711C242701FAFB23 /* Pods-FlexibleLayoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlexibleLayoutExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlexibleLayoutExample/Pods-FlexibleLayoutExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 			children = (
 				BB289B921F1965E5007C4232 /* VerticalDistributionView.swift */,
 				BBE199E71F19722A00D80A31 /* HorizontalDistributionView.swift */,
+				BBE199E91F19770E00D80A31 /* TwoViewsCenteredHorizontallyView.swift */,
 			);
 			name = ViewExamples;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB26D00E1F195EAD0062749D /* ViewInjectableViewController.swift in Sources */,
+				BBE199EA1F19770E00D80A31 /* TwoViewsCenteredHorizontallyView.swift in Sources */,
 				BBE199E81F19722A00D80A31 /* HorizontalDistributionView.swift in Sources */,
 				BB26CFFE1F195D170062749D /* ViewController.swift in Sources */,
 				BB289B931F1965E5007C4232 /* VerticalDistributionView.swift in Sources */,

@@ -28,7 +28,7 @@ class ViewController: UITableViewController {
         case .horizontalDistribution:
             return { return HorizontalDistributionView() }
         case .horizontalCentering:
-            return { return UIView() }
+            return { return TwoViewsCenteredHorizontallyView() }
         }
     }
 
