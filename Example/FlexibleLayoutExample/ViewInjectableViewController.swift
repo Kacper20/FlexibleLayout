@@ -22,6 +22,11 @@ final class ViewInjectableViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.layoutMargins = UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: 0, right: 0)
+    }
+
     override func loadView() {
         view = viewCreation()
     }
