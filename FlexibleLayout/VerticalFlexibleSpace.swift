@@ -9,7 +9,8 @@
 import Foundation
 
 public struct VerticalFlexibleSpace {
-    let constructable: VerticalFlexibleSpaceConstructable
+    let from: LayoutYTarget
+    let to: LayoutYTarget
     let coefficient: CGFloat
 }
 
@@ -18,6 +19,6 @@ public struct VerticalFlexibleSpaceConstructable {
     let to: LayoutYTarget
 
     public func with(_ coefficient: CGFloat) -> VerticalFlexibleSpace {
-        return VerticalFlexibleSpace(constructable: self, coefficient: coefficient)
+        return VerticalFlexibleSpace(from: from, to: to, coefficient: coefficient)
     }
 }

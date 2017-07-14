@@ -9,7 +9,8 @@
 import Foundation
 
 public struct HorizontalFlexibleSpace {
-    let constructable: HorizontalFlexibleSpaceConstructable
+    let from: LayoutXTarget
+    let to: LayoutXTarget
     let coefficient: CGFloat
 }
 
@@ -18,6 +19,6 @@ public struct HorizontalFlexibleSpaceConstructable {
     let to: LayoutXTarget
 
     public func with(_ coefficient: CGFloat) -> HorizontalFlexibleSpace {
-        return HorizontalFlexibleSpace(constructable: self, coefficient: coefficient)
+        return HorizontalFlexibleSpace(from: from, to: to, coefficient: coefficient)
     }
 }
