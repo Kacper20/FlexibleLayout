@@ -16,7 +16,7 @@ excluded:
   - Example
   - Tests
 
-  
+function_body_length: 70
 line_length: 120
 # they can set both implicitly with an array
 type_body_length:
