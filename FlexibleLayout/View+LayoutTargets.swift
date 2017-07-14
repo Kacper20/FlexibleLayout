@@ -30,6 +30,26 @@ extension UIView {
         return LayoutXTarget(kind: .centerX, view: self)
     }
 
+    var leftMarginTarget: LayoutXTarget {
+        return LayoutXTarget(kind: .leftMargin, view: self)
+    }
+
+    var rightMarginTarget: LayoutXTarget {
+        return LayoutXTarget(kind: .rightMargin, view: self)
+    }
+
+    var leadingMarginTarget: LayoutXTarget {
+        return LayoutXTarget(kind: .leadingMargin, view: self)
+    }
+
+    var trailingMarginTarget: LayoutXTarget {
+        return LayoutXTarget(kind: .trailingMargin, view: self)
+    }
+
+    var centerXWithinMarginsTarget: LayoutXTarget {
+        return LayoutXTarget(kind: .centerXWithinMargins, view: self)
+    }
+
     var topTarget: LayoutYTarget {
         return LayoutYTarget(kind: .top, view: self)
     }
@@ -40,5 +60,25 @@ extension UIView {
 
     var centerYTarget: LayoutYTarget {
         return LayoutYTarget(kind: .centerY, view: self)
+    }
+
+    var topMarginTarget: LayoutYTarget {
+        return LayoutYTarget(kind: .topMargin, view: self)
+    }
+
+    var bottomMarginTarget: LayoutYTarget {
+        return LayoutYTarget(kind: .bottomMargin, view: self)
+    }
+
+    var centerYWithinMarginsTarget: LayoutYTarget {
+        return LayoutYTarget(kind: .centerYWithinMargins, view: self)
+    }
+
+    var firstBaselineTarget: LayoutYTarget {
+        return LayoutYTarget(kind: .firstBaseline, view: self)
+    }
+
+    var lastBaselineTarget: LayoutYTarget {
+        return LayoutYTarget(kind: .lastBaseline, view: self)
     }
 }
