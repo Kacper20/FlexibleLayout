@@ -18,7 +18,12 @@ public struct LayoutXTarget {
         case right
         case leading
         case trailing
+        case leftMargin
+        case rightMargin
+        case leadingMargin
+        case trailingMargin
         case centerX
+        case centerXWithinMargins
     }
 
     init(kind: Kind, view: UIView) {
@@ -33,6 +38,11 @@ public struct LayoutXTarget {
         case .leading: return .leading
         case .trailing: return .trailing
         case .centerX: return .centerX
+        case .leftMargin: return .leftMargin
+        case .rightMargin: return .rightMargin
+        case .leadingMargin: return .leadingMargin
+        case .trailingMargin: return .trailingMargin
+        case .centerXWithinMargins: return .centerXWithinMargins
         }
     }
 
@@ -44,6 +54,11 @@ public struct LayoutXTarget {
         case .leading: return view.leadingAnchor
         case .trailing: return view.trailingAnchor
         case .centerX: return view.centerXAnchor
+        case .leftMargin: return view.layoutMarginsGuide.leftAnchor
+        case .rightMargin: return view.layoutMarginsGuide.rightAnchor
+        case .leadingMargin: return view.layoutMarginsGuide.leadingAnchor
+        case .trailingMargin: return view.layoutMarginsGuide.trailingAnchor
+        case .centerXWithinMargins: return view.layoutMarginsGuide.centerXAnchor
         }
     }
 }
