@@ -14,24 +14,119 @@ public struct Flexible {
         _ spaces: [VerticalFlexibleSpace],
         in container: UIView
         ) {
-        for space in spaces {
-            let fromView = space.from.view
-            let toView = space.to.view
-            if fromView != container && fromView.superview == nil {
-                container.addSubview(fromView)
-            }
-            if toView != container && toView.superview == nil {
-                container.addSubview(toView)
-            }
+        ensureInViewHierarchy(viewsProvidables: spaces, container: container)
+        if #available(iOS 9.0, *) {
+            buildLayout(
+                spaces: spaces,
+                in: container,
+                generation: { space in GuidesHelpers.setupVerticalSpacingLayoutGuide(for: space, in: container) },
+                dimensionSetup: { (base, other, multiplier) in
+                    return setupSizeDependentAnchors(
+                        base: base,
+                        other: other,
+                        dimensionAnchorGenerate: { $0.heightAnchor },
+                        multiplier: multiplier)
+                }
+            )
+        } else {
+            buildLayout(
+                spaces: spaces,
+                in: container,
+                generation: { space in
+                    return ConstraintsHelpers.createHeightEnforcingViewAndSetupConstraints(for: space, in: container)
+                },
+                dimensionSetup: { (base, other, multiplier) in
+                    return setupSizeDependentViews(
+                        base: base,
+                        other: other,
+                        layoutAttributeGenerate: { _ in .height },
+                        multiplier: multiplier)
+                }
+            )
         }
     }
 
-    private static func buildVerticalLayout<T>(
-        spaces: [VerticalFlexibleSpace],
+    public static func horizontalLayout(
+        _ spaces: [HorizontalFlexibleSpace],
+        in container: UIView
+        ) {
+        ensureInViewHierarchy(viewsProvidables: spaces, container: container)
+        if #available(iOS 9.0, *) {
+            buildLayout(
+                spaces: spaces,
+                in: container,
+                generation: { space in GuidesHelpers.setupHorizontalSpacingLayoutGuide(for: space, in: container) },
+                dimensionSetup: { (base, other, multiplier) in
+                    return setupSizeDependentAnchors(
+                        base: base,
+                        other: other,
+                        dimensionAnchorGenerate: { $0.widthAnchor },
+                        multiplier: multiplier)
+            }
+            )
+        } else {
+            buildLayout(
+                spaces: spaces,
+                in: container,
+                generation: { space in
+                    return ConstraintsHelpers.createWidthEnforcingViewAndSetupConstraints(for: space, in: container)
+            },
+                dimensionSetup: { (base, other, multiplier) in
+                    return setupSizeDependentViews(
+                        base: base,
+                        other: other,
+                        layoutAttributeGenerate: { _ in .width },
+                        multiplier: multiplier)
+                }
+            )
+        }
+    }
+
+    private static func ensureInViewHierarchy(viewsProvidables: [InvolvedViewsProvidable], container: UIView) {
+        for viewsProvidable in viewsProvidables {
+            viewsProvidable.views
+                .filter { $0 != container && $0.superview == nil }
+                .forEach { container.addSubview($0) }
+        }
+    }
+
+    @available(iOS 9.0, *)
+    private static func setupSizeDependentAnchors(
+        base: UILayoutGuide,
+        other: UILayoutGuide,
+        dimensionAnchorGenerate: (UILayoutGuide) -> NSLayoutDimension,
+        multiplier: CGFloat
+    ) {
+        dimensionAnchorGenerate(other).constraint(
+            equalTo: dimensionAnchorGenerate(base),
+            multiplier: multiplier,
+            constant: 0
+        ).isActive = true
+    }
+
+    private static func setupSizeDependentViews(
+        base: UIView,
+        other: UIView,
+        layoutAttributeGenerate: (UIView) -> NSLayoutAttribute,
+        multiplier: CGFloat
+        ) {
+        NSLayoutConstraint(
+            item: other,
+            attribute: layoutAttributeGenerate(other),
+            relatedBy: .equal,
+            toItem: base,
+            attribute: layoutAttributeGenerate(base),
+            multiplier: multiplier,
+            constant: 0
+        ).isActive = true
+    }
+
+    private static func buildLayout<T, C: CoefficientProvidable>(
+        spaces: [C],
         in container: UIView,
-        generation: (VerticalFlexibleSpace) -> T,
+        generation: (C) -> T,
         minimumOffset: CGFloat = 0.0,
-        heightSetup: (T, T, CGFloat) -> Void
+        dimensionSetup: (T, T, CGFloat) -> Void
         ) {
         let sortedSpaces = spaces.sorted(by: { $0.0.coefficient < $0.1.coefficient })
         guard let firstConfiguration = sortedSpaces.first else { return }
@@ -39,7 +134,7 @@ public struct Flexible {
         let first = generation(firstConfiguration)
         for space in sortedSpaces.dropFirst() {
             let generated = generation(space)
-            heightSetup(first, generated, CGFloat(space.coefficient / minimalCoefficient))
+            dimensionSetup(first, generated, CGFloat(space.coefficient / minimalCoefficient))
         }
     }
 }

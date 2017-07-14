@@ -27,7 +27,7 @@ struct ConstraintsHelpers {
         ).isActive = true
     }
 
-    private static func createHeightEnforcingViewAndSetupConstraints(
+    static func createHeightEnforcingViewAndSetupConstraints(
         for space: VerticalFlexibleSpace,
         in container: UIView
         ) -> UIView {
@@ -44,8 +44,8 @@ struct ConstraintsHelpers {
         return view
     }
 
-    private static func createWidthEnforcingViewAndSetupConstraints(
-        for space: VerticalFlexibleSpace,
+    static func createWidthEnforcingViewAndSetupConstraints(
+        for space: HorizontalFlexibleSpace,
         in container: UIView
         ) -> UIView {
         let view = UIView()

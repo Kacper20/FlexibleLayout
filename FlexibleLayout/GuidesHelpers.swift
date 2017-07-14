@@ -10,7 +10,7 @@ import Foundation
 
 @available(iOS 9.0, *)
 struct GuidesHelpers {
-    private static func setupVerticalSpacingLayoutGuide(
+    static func setupVerticalSpacingLayoutGuide(
         for space: VerticalFlexibleSpace,
         in container: UIView
         ) -> UILayoutGuide {
@@ -22,7 +22,7 @@ struct GuidesHelpers {
         return spacingGuide
     }
 
-    private static func setupHorizontalSpacingLayoutGuide(
+    static func setupHorizontalSpacingLayoutGuide(
         for space: HorizontalFlexibleSpace,
         in container: UIView
         ) -> UILayoutGuide {
