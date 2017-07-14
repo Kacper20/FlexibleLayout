@@ -20,6 +20,7 @@ final class VerticalDistributionView: UIView {
     init() {
         super.init(frame: .zero)
         setupConstraints()
+        backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,13 +30,18 @@ final class VerticalDistributionView: UIView {
     private func setupConstraints() {
         [first, second, third].forEach {
             addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
             $0.backgroundColor = UIColor.blue
             $0.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            $0.heightAnchor.constraint(equalToConstant: 30).isActive = true
             $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         }
 
         Flexible.verticalLayout([
-                []
-            ], in: self)
+            self.topMarginTarget.to(first.topTarget).with(1),
+            second.topTarget.to(first.bottomTarget).with(2),
+            third.topTarget.to(second.bottomTarget).with(2),
+            self.bottomTarget.to(third.bottomTarget).with(1),
+        ], in: self)
     }
 }

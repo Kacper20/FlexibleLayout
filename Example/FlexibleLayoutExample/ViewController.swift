@@ -24,7 +24,7 @@ class ViewController: UITableViewController {
     private func viewCreation(for example: LayoutExample) -> () -> UIView {
         switch example {
         case .verticalDistribution:
-            return { return UIView() }
+            return { return VerticalDistributionView() }
         case .horizontalDistribution:
             return { return UIView() }
         case .horizontalCentering:
