@@ -36,10 +36,10 @@ final class HorizontalDistributionView: UIView {
             $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         }
         Flexible.horizontalLayout([
-            self.leadingMarginTarget.to(first.leadingTarget).with(1),
-            first.trailingTarget.to(second.leadingTarget).with(2),
-            second.trailingTarget.to(third.leadingTarget).with(0.5),
-            third.trailingTarget.to(self.trailingTarget).with(0.5)
+            self.leftTarget.to(first.leftTarget).with(1),
+            first.rightTarget.to(second.leftTarget).with(2),
+            second.rightTarget.to(third.leftTarget).with(0.5),
+            third.rightTarget.to(self.rightTarget).with(0.5)
             ], in: self)
     }
 }

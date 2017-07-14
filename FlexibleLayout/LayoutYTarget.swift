@@ -30,7 +30,7 @@ public struct LayoutYTarget {
     }
 
     var attribute: NSLayoutAttribute {
-        switch self.kind {
+        switch kind {
         case .top: return .top
         case .bottom: return .bottom
         case .centerY: return .centerY
@@ -44,7 +44,7 @@ public struct LayoutYTarget {
 
     @available(iOS 9.0, *)
     var anchor: NSLayoutYAxisAnchor {
-        switch self.kind {
+        switch kind {
         case .top: return view.topAnchor
         case .bottom: return view.bottomAnchor
         case .centerY: return view.centerYAnchor

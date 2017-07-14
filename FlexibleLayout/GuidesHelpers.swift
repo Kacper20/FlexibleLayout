@@ -29,8 +29,11 @@ struct GuidesHelpers {
         let spacingGuide = UILayoutGuide()
         container.addLayoutGuide(spacingGuide)
         spacingGuide.centerYAnchor.constraint(equalTo: space.from.view.centerYAnchor).isActive = true
-        spacingGuide.leadingAnchor.constraint(equalTo: space.from.anchor).isActive = true
-        spacingGuide.trailingAnchor.constraint(equalTo: space.to.anchor).isActive = true
+
+        let fromTargetAnchor = space.from.isRtlSupportive ? spacingGuide.leadingAnchor : spacingGuide.leftAnchor
+        fromTargetAnchor.constraint(equalTo: space.from.anchor).isActive = true
+        let toTargetAnchor = space.to.isRtlSupportive ? spacingGuide.trailingAnchor : spacingGuide.rightAnchor
+        toTargetAnchor.constraint(equalTo: space.to.anchor).isActive = true
         return spacingGuide
     }
 }

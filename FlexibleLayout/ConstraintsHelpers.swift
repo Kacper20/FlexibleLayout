@@ -55,8 +55,15 @@ struct ConstraintsHelpers {
         let to = space.to
         activateConstraint(fromView: view, toView: container, fromAttribute: .height, toAttribute: .height)
         activateConstraint(fromView: view, toView: space.from.view, fromAttribute: .centerY, toAttribute: .centerY)
-        activateConstraint(fromView: view, toView: from.view, fromAttribute: .leading, toAttribute: from.attribute)
-        activateConstraint(fromView: view, toView: to.view, fromAttribute: .trailing, toAttribute: to.attribute)
+        let fromTargetAttribute: NSLayoutAttribute = space.from.isRtlSupportive ? .leading : .left
+        activateConstraint(
+            fromView: view,
+            toView: from.view,
+            fromAttribute: fromTargetAttribute,
+            toAttribute: from.attribute
+        )
+        let toTargetAttribute: NSLayoutAttribute = space.to.isRtlSupportive ? .trailing : .right
+        activateConstraint(fromView: view, toView: to.view, fromAttribute: toTargetAttribute, toAttribute: to.attribute)
 
         return view
     }

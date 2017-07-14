@@ -31,8 +31,16 @@ public struct LayoutXTarget {
         self.view = view
     }
 
+    var isRtlSupportive: Bool {
+        switch kind {
+        case .leading, .trailing, .leadingMargin, .trailingMargin:
+            return true
+        default: return false
+        }
+    }
+
     var attribute: NSLayoutAttribute {
-        switch self.kind {
+        switch kind {
         case .left: return .left
         case .right: return .right
         case .leading: return .leading
@@ -48,7 +56,7 @@ public struct LayoutXTarget {
 
     @available(iOS 9.0, *)
     var anchor: NSLayoutXAxisAnchor {
-        switch self.kind {
+        switch kind {
         case .left: return view.leftAnchor
         case .right: return view.rightAnchor
         case .leading: return view.leadingAnchor
