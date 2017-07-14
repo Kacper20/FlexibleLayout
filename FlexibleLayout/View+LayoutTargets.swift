@@ -10,75 +10,75 @@ import Foundation
 
 extension UIView {
 
-    var leftTarget: LayoutXTarget {
+    public var leftTarget: LayoutXTarget {
         return LayoutXTarget(kind: .left, view: self)
     }
 
-    var rightTarget: LayoutXTarget {
+    public var rightTarget: LayoutXTarget {
         return LayoutXTarget(kind: .right, view: self)
     }
 
-    var leadingTarget: LayoutXTarget {
+    public var leadingTarget: LayoutXTarget {
         return LayoutXTarget(kind: .leading, view: self)
     }
 
-    var trailingTarget: LayoutXTarget {
+    public var trailingTarget: LayoutXTarget {
         return LayoutXTarget(kind: .trailing, view: self)
     }
 
-    var centerXTarget: LayoutXTarget {
+    public var centerXTarget: LayoutXTarget {
         return LayoutXTarget(kind: .centerX, view: self)
     }
 
-    var leftMarginTarget: LayoutXTarget {
+    public var leftMarginTarget: LayoutXTarget {
         return LayoutXTarget(kind: .leftMargin, view: self)
     }
 
-    var rightMarginTarget: LayoutXTarget {
+    public var rightMarginTarget: LayoutXTarget {
         return LayoutXTarget(kind: .rightMargin, view: self)
     }
 
-    var leadingMarginTarget: LayoutXTarget {
+    public var leadingMarginTarget: LayoutXTarget {
         return LayoutXTarget(kind: .leadingMargin, view: self)
     }
 
-    var trailingMarginTarget: LayoutXTarget {
+    public var trailingMarginTarget: LayoutXTarget {
         return LayoutXTarget(kind: .trailingMargin, view: self)
     }
 
-    var centerXWithinMarginsTarget: LayoutXTarget {
+    public var centerXWithinMarginsTarget: LayoutXTarget {
         return LayoutXTarget(kind: .centerXWithinMargins, view: self)
     }
 
-    var topTarget: LayoutYTarget {
+    public var topTarget: LayoutYTarget {
         return LayoutYTarget(kind: .top, view: self)
     }
 
-    var bottomTarget: LayoutYTarget {
+    public var bottomTarget: LayoutYTarget {
         return LayoutYTarget(kind: .bottom, view: self)
     }
 
-    var centerYTarget: LayoutYTarget {
+    public var centerYTarget: LayoutYTarget {
         return LayoutYTarget(kind: .centerY, view: self)
     }
 
-    var topMarginTarget: LayoutYTarget {
+    public var topMarginTarget: LayoutYTarget {
         return LayoutYTarget(kind: .topMargin, view: self)
     }
 
-    var bottomMarginTarget: LayoutYTarget {
+    public var bottomMarginTarget: LayoutYTarget {
         return LayoutYTarget(kind: .bottomMargin, view: self)
     }
 
-    var centerYWithinMarginsTarget: LayoutYTarget {
+    public var centerYWithinMarginsTarget: LayoutYTarget {
         return LayoutYTarget(kind: .centerYWithinMargins, view: self)
     }
 
-    var firstBaselineTarget: LayoutYTarget {
+    public var firstBaselineTarget: LayoutYTarget {
         return LayoutYTarget(kind: .firstBaseline, view: self)
     }
 
-    var lastBaselineTarget: LayoutYTarget {
+    public var lastBaselineTarget: LayoutYTarget {
         return LayoutYTarget(kind: .lastBaseline, view: self)
     }
 }

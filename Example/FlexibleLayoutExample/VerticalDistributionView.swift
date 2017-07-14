@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FlexibleLayout
 
 
 final class VerticalDistributionView: UIView {
@@ -32,5 +33,9 @@ final class VerticalDistributionView: UIView {
             $0.widthAnchor.constraint(equalToConstant: 100).isActive = true
             $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         }
+
+        Flexible.verticalLayout([
+                []
+            ], in: self)
     }
 }
