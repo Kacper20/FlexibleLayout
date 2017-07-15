@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = "Distributing flexible spaces between views made easy"
 
   s.description      = <<-DESC
-  FlexibleLayout is easy helper library for building flexible spaces between views in your layout in declarative way.
+  FlexibleLayout is helper library for building flexible spaces between views in your layout in declarative way.
 Uses auto-layout underneath and you can use it with your favorite libraries, or pure constraint APIs.
                        DESC
 

@@ -24,6 +24,10 @@ public struct VerticalFlexibleSpaceConstructable {
         self.to = to
     }
 
+    public func reversedWith(_ coefficient: CGFloat) -> VerticalFlexibleSpace {
+        return VerticalFlexibleSpace(from: to, to: from, coefficient: coefficient)
+    }
+
     public func with(_ coefficient: CGFloat) -> VerticalFlexibleSpace {
         return VerticalFlexibleSpace(from: from, to: to, coefficient: coefficient)
     }
