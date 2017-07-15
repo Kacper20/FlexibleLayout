@@ -20,6 +20,7 @@
 		BB26CFEA1F194ECC0062749D /* ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE91F194ECC0062749D /* ConstraintsHelpers.swift */; };
 		BB26CFEC1F194F0A0062749D /* GuidesHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFEB1F194F0A0062749D /* GuidesHelpers.swift */; };
 		BB26CFEE1F1952E00062749D /* Spaces+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFED1F1952E00062749D /* Spaces+Protocols.swift */; };
+		BBE199EC1F1A25E500D80A31 /* FlexibleLayoutDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BB26CFE91F194ECC0062749D /* ConstraintsHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelpers.swift; sourceTree = "<group>"; };
 		BB26CFEB1F194F0A0062749D /* GuidesHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidesHelpers.swift; sourceTree = "<group>"; };
 		BB26CFED1F1952E00062749D /* Spaces+Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Spaces+Protocols.swift"; sourceTree = "<group>"; };
+		BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleLayoutDSL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				BB26CFE91F194ECC0062749D /* ConstraintsHelpers.swift */,
 				BB26CFEB1F194F0A0062749D /* GuidesHelpers.swift */,
 				BB26CFED1F1952E00062749D /* Spaces+Protocols.swift */,
+				BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */,
 			);
 			path = FlexibleLayout;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE199EC1F1A25E500D80A31 /* FlexibleLayoutDSL.swift in Sources */,
 				BB26CFEE1F1952E00062749D /* Spaces+Protocols.swift in Sources */,
 				BB26CFDD1F193EF40062749D /* View+LayoutTargets.swift in Sources */,
 				BB26CFE61F19469F0062749D /* HorizontalFlexibleSpace.swift in Sources */,
@@ -467,6 +471,7 @@
 				BB26CFD21F193C710062749D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB26CFD31F193C710062749D /* Build configuration list for PBXNativeTarget "FlexibleLayoutTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +480,7 @@
 				BB26CFD51F193C710062749D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
