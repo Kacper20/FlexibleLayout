@@ -27,6 +27,22 @@ struct ConstraintsHelpers {
         ).isActive = true
     }
 
+    static func activateGreaterThanOrEqualConstraint(
+        on view: UIView,
+        attribute: NSLayoutAttribute,
+        constantValue: CGFloat
+        ) {
+        NSLayoutConstraint(
+            item: view,
+            attribute: attribute,
+            relatedBy: .greaterThanOrEqual,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1.0,
+            constant: 0.0
+        ).isActive = true
+    }
+
     static func createHeightEnforcingViewAndSetupConstraints(
         for space: VerticalFlexibleSpace,
         in container: UIView

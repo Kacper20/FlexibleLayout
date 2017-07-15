@@ -8,31 +8,57 @@
 
 import Foundation
 
+public struct MinimalCoefficientSize {
+    let coefficient: CGFloat
+    let value: CGFloat
+}
+
 public struct Flexible {
 
     public static func verticalLayout(
         _ spaces: [VerticalFlexibleSpace],
-        in container: UIView
+        in container: UIView,
+        coefficientSize: MinimalCoefficientSize? = nil
         ) {
         ensureInViewHierarchy(viewsProvidables: spaces, container: container)
         if #available(iOS 9.0, *) {
+            let firstItemSetup = firstItemSizeSetupGenerate(
+                coefficientSize: coefficientSize,
+                itemSetup: { (spacer: UILayoutGuide, height: CGFloat) in
+                    spacer.heightAnchor.constraint(greaterThanOrEqualToConstant: height).isActive = true
+                }
+            )
+
             buildLayout(
                 spaces: spaces,
                 in: container,
-                generation: { space in GuidesHelpers.setupVerticalSpacingLayoutGuide(for: space, in: container) },
+                layoutItemGeneration: { space in
+                    GuidesHelpers.setupVerticalSpacingLayoutGuide(for: space, in: container)
+                },
                 dimensionSetup: { (base, other, multiplier) in
                     return setupSizeDependentAnchors(
                         base: base,
                         other: other,
                         dimensionAnchorGenerate: { $0.heightAnchor },
                         multiplier: multiplier)
-                }
+                },
+                firstItemSetup: firstItemSetup
             )
         } else {
+            let firstItemSetup = firstItemSizeSetupGenerate(
+                coefficientSize: coefficientSize,
+                itemSetup: { (spacer: UIView, height: CGFloat) in
+                    ConstraintsHelpers.activateGreaterThanOrEqualConstraint(
+                        on: spacer,
+                        attribute: .height,
+                        constantValue: height
+                    )
+                }
+            )
             buildLayout(
                 spaces: spaces,
                 in: container,
-                generation: { space in
+                layoutItemGeneration: { space in
                     return ConstraintsHelpers.createHeightEnforcingViewAndSetupConstraints(for: space, in: container)
                 },
                 dimensionSetup: { (base, other, multiplier) in
@@ -41,34 +67,57 @@ public struct Flexible {
                         other: other,
                         layoutAttributeGenerate: { _ in .height },
                         multiplier: multiplier)
-                }
+                },
+                firstItemSetup: firstItemSetup
             )
         }
     }
 
     public static func horizontalLayout(
         _ spaces: [HorizontalFlexibleSpace],
-        in container: UIView
+        in container: UIView,
+        coefficientSize: MinimalCoefficientSize? = nil
         ) {
         ensureInViewHierarchy(viewsProvidables: spaces, container: container)
         if #available(iOS 9.0, *) {
+            let firstItemSetup = firstItemSizeSetupGenerate(
+                coefficientSize: coefficientSize,
+                itemSetup: { (spacer: UILayoutGuide, width: CGFloat) in
+                    spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: width).isActive = true
+                }
+            )
+
             buildLayout(
                 spaces: spaces,
                 in: container,
-                generation: { space in GuidesHelpers.setupHorizontalSpacingLayoutGuide(for: space, in: container) },
+                layoutItemGeneration: { space in
+                    GuidesHelpers.setupHorizontalSpacingLayoutGuide(for: space, in: container)
+                },
                 dimensionSetup: { (base, other, multiplier) in
                     return setupSizeDependentAnchors(
                         base: base,
                         other: other,
                         dimensionAnchorGenerate: { $0.widthAnchor },
                         multiplier: multiplier)
-            }
+                },
+                firstItemSetup: firstItemSetup
             )
         } else {
+            let firstItemSetup = firstItemSizeSetupGenerate(
+                coefficientSize: coefficientSize,
+                itemSetup: { (spacer: UIView, width: CGFloat) in
+                    ConstraintsHelpers.activateGreaterThanOrEqualConstraint(
+                        on: spacer,
+                        attribute: .width,
+                        constantValue: width
+                    )
+                }
+            )
+
             buildLayout(
                 spaces: spaces,
                 in: container,
-                generation: { space in
+                layoutItemGeneration: { space in
                     return ConstraintsHelpers.createWidthEnforcingViewAndSetupConstraints(for: space, in: container)
             },
                 dimensionSetup: { (base, other, multiplier) in
@@ -77,8 +126,19 @@ public struct Flexible {
                         other: other,
                         layoutAttributeGenerate: { _ in .width },
                         multiplier: multiplier)
-                }
+                },
+                firstItemSetup: firstItemSetup
             )
+        }
+    }
+
+    private static func firstItemSizeSetupGenerate<LayoutSpacer>(
+        coefficientSize: MinimalCoefficientSize? = nil,
+        itemSetup: @escaping (LayoutSpacer, CGFloat) -> Void
+        ) -> ((LayoutSpacer, CGFloat) -> Void)? {
+        guard let size = coefficientSize else { return nil }
+        return { (spacer, coefficient) in
+            itemSetup(spacer, (size.value * coefficient) / size.coefficient)
         }
     }
 
@@ -121,19 +181,20 @@ public struct Flexible {
         ).isActive = true
     }
 
-    private static func buildLayout<T, C: CoefficientProvidable>(
-        spaces: [C],
+    private static func buildLayout<LayoutSpacer, Space: CoefficientProvidable>(
+        spaces: [Space],
         in container: UIView,
-        generation: (C) -> T,
-        minimumOffset: CGFloat = 0.0,
-        dimensionSetup: (T, T, CGFloat) -> Void
+        layoutItemGeneration: (Space) -> LayoutSpacer,
+        dimensionSetup: (LayoutSpacer, LayoutSpacer, CGFloat) -> Void,
+        firstItemSetup: ((LayoutSpacer, CGFloat) -> Void)? = nil
         ) {
         let sortedSpaces = spaces.sorted(by: { $0.0.coefficient < $0.1.coefficient })
         guard let firstConfiguration = sortedSpaces.first else { return }
         let minimalCoefficient = firstConfiguration.coefficient
-        let first = generation(firstConfiguration)
+        let first = layoutItemGeneration(firstConfiguration)
+        firstItemSetup?(first, minimalCoefficient)
         for space in sortedSpaces.dropFirst() {
-            let generated = generation(space)
+            let generated = layoutItemGeneration(space)
             dimensionSetup(first, generated, CGFloat(space.coefficient / minimalCoefficient))
         }
     }
