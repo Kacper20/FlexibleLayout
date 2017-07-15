@@ -38,10 +38,10 @@ final class VerticalDistributionView: UIView {
         }
 
         Flexible.verticalLayout([
-            self.topMarginTarget.to(first.topTarget).with(1),
-            first.bottomTarget.to(second.topTarget).with(2),
-            second.bottomTarget.to(third.topTarget).with(2),
-            third.bottomTarget.to(self.bottomTarget).with(1),
+            self.flx.topMargin.to(first.flx.top).with(1),
+            first.flx.bottom.to(second.flx.top).with(2),
+            second.flx.bottom.to(third.flx.top).with(2),
+            third.flx.bottom.to(self.flx.bottom).with(1),
         ], in: self)
     }
 }

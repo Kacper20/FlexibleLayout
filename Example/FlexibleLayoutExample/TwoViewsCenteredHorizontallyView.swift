@@ -36,8 +36,8 @@ final class TwoViewsCenteredHorizontallyView: UIView {
         }
         second.leadingAnchor.constraint(equalTo: first.trailingAnchor, constant: 10).isActive = true
         Flexible.horizontalLayout([
-            self.leftTarget.to(first.leftTarget).with(1),
-            second.trailingTarget.to(self.trailingTarget).with(1)
+            self.flx.left.to(first.flx.left).with(1),
+            second.flx.trailing.to(self.flx.trailing).with(1)
             ], in: self)
     }
 }
