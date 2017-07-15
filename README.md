@@ -27,6 +27,15 @@ github "Kacper20/FlexibleLayout"
 ```
 Then, run `carthage update` to build framework and drag `FlexibleLayout.framework` into your Xcode project.
 
+## Why is it useful
+
+Building layout that looks equally good on different screen sizes is hard. Sometimes, when you specify your constraints using constants it looks good on small device, but not natural on big iPhone 6/7 Plus sizes. 
+
+In couple of my projects there was a need to do this in a more flexible way, using spaces that are resizable along with the screen size. Doing this was really cumbersome - you need to remember about creating spacing objects, constraining them and it's really too much code for that simple idea. That's why I created this set of helper methods for creating flexible spacings.
+
+I've chosen to work with constraints because it's more and more used among Apple developers and this approach doesn't force developers using frames with constraints, which could be really painful.
+
+
 ## How you could use it
 Library provides two ways of distributing spaces:
 - vertically
@@ -92,14 +101,6 @@ Flexible.verticalLayout([
 )
 ```
 Then, your spacer views with coefficient 1 will resolve to at least 32 in height. Those with coefficient 2 will be then at least 64 in height.
-
-## Why
-
-Building layout that looks equally good on different screen sizes is hard. Sometimes, when you specify your constraints using constants it looks good on small device, but not natural on big iPhone 6/7 Plus sizes. 
-
-In couple of my projects there was a need to do this in a more flexible way, using spaces that are resizable along with the screen size. Doing this was really cumbersome - you need to remember about creating spacing objects, constraining them and it's really too much code for that simple idea. That's why I created this set of helper methods for creating flexible spacings.
-
-I've chosen to work with constraints because it's more and more used among Apple developers and this approach doesn't force developers using frames with constraints, which could be really painful.
 
 ### What happens underneath
 
