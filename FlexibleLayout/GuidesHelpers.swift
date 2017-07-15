@@ -10,6 +10,7 @@ import Foundation
 
 @available(iOS 9.0, *)
 struct GuidesHelpers {
+
     static func setupVerticalSpacingLayoutGuide(
         for space: VerticalFlexibleSpace,
         in container: UIView

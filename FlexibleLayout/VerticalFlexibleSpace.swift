@@ -15,6 +15,7 @@ public struct VerticalFlexibleSpace {
 }
 
 public struct VerticalFlexibleSpaceConstructable {
+    
     let from: LayoutYTarget
     let to: LayoutYTarget
 

@@ -15,6 +15,7 @@ public struct HorizontalFlexibleSpace {
 }
 
 public struct HorizontalFlexibleSpaceConstructable {
+    
     let from: LayoutXTarget
     let to: LayoutXTarget
 

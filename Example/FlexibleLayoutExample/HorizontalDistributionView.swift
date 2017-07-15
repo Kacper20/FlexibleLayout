@@ -40,6 +40,8 @@ final class HorizontalDistributionView: UIView {
             first.flx.right.to(second.flx.left).with(2),
             second.flx.right.to(third.flx.left).with(0.5),
             third.flx.right.to(self.flx.right).with(0.5)
-            ], in: self)
+            ],
+            in: self
+        )
     }
 }

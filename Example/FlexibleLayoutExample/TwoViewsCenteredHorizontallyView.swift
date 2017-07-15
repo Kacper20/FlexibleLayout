@@ -38,6 +38,8 @@ final class TwoViewsCenteredHorizontallyView: UIView {
         Flexible.horizontalLayout([
             self.flx.left.to(first.flx.left).with(1),
             second.flx.trailing.to(self.flx.trailing).with(1)
-            ], in: self)
+            ],
+            in: self
+        )
     }
 }

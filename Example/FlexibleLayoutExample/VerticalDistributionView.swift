@@ -42,6 +42,8 @@ final class VerticalDistributionView: UIView {
             first.flx.bottom.to(second.flx.top).with(2),
             second.flx.bottom.to(third.flx.top).with(2),
             third.flx.bottom.to(self.flx.bottom).with(1),
-        ], in: self)
+            ],
+            in: self
+        )
     }
 }
