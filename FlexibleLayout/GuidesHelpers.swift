@@ -7,13 +7,18 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 @available(iOS 9.0, *)
 struct GuidesHelpers {
 
     static func setupVerticalSpacingLayoutGuide(
         for space: VerticalFlexibleSpace,
-        in container: UIView
+        in container: FlexibleView
         ) -> UILayoutGuide {
         let spacingGuide = UILayoutGuide()
         container.addLayoutGuide(spacingGuide)
@@ -25,7 +30,7 @@ struct GuidesHelpers {
 
     static func setupHorizontalSpacingLayoutGuide(
         for space: HorizontalFlexibleSpace,
-        in container: UIView
+        in container: FlexibleView
         ) -> UILayoutGuide {
         let spacingGuide = UILayoutGuide()
         container.addLayoutGuide(spacingGuide)

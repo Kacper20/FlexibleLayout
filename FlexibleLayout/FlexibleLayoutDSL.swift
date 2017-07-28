@@ -7,10 +7,15 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 public struct FlexibleLayoutDSL {
 
-    let view: UIView
+    let view: FlexibleView
 
     public var left: LayoutXTarget {
         return LayoutXTarget(kind: .left, view: view)

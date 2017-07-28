@@ -7,6 +7,11 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 protocol CoefficientProvidable {
     var coefficient: CGFloat { get }
@@ -17,17 +22,17 @@ extension VerticalFlexibleSpace: CoefficientProvidable { }
 extension HorizontalFlexibleSpace: CoefficientProvidable { }
 
 protocol InvolvedViewsProvidable {
-    var views: [UIView] { get }
+    var views: [FlexibleView] { get }
 }
 
 extension VerticalFlexibleSpace: InvolvedViewsProvidable {
-    var views: [UIView] {
+    var views: [FlexibleView] {
         return [from.view, to.view]
     }
 }
 
 extension HorizontalFlexibleSpace: InvolvedViewsProvidable {
-    var views: [UIView] {
+    var views: [FlexibleView] {
         return [from.view, to.view]
     }
 }

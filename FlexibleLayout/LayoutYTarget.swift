@@ -7,10 +7,15 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 public struct LayoutYTarget {
 
-    let view: UIView
+    let view: FlexibleView
     let kind: Kind
 
     enum Kind {
@@ -24,7 +29,7 @@ public struct LayoutYTarget {
         case lastBaseline
     }
 
-    init(kind: Kind, view: UIView) {
+    init(kind: Kind, view: FlexibleView) {
         self.kind = kind
         self.view = view
     }

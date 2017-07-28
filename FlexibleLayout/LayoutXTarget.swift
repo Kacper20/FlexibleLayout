@@ -7,10 +7,15 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 public struct LayoutXTarget {
 
-    let view: UIView
+    let view: FlexibleView
     let kind: Kind
 
     public enum Kind {
@@ -26,7 +31,7 @@ public struct LayoutXTarget {
         case centerXWithinMargins
     }
 
-    init(kind: Kind, view: UIView) {
+    init(kind: Kind, view: FlexibleView) {
         self.kind = kind
         self.view = view
     }

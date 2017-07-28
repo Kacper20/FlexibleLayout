@@ -7,12 +7,17 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 struct ConstraintsHelpers {
 
     private static func activateConstraint(
-        fromView: UIView,
-        toView: UIView,
+        fromView: FlexibleView,
+        toView: FlexibleView,
         fromAttribute: NSLayoutAttribute,
         toAttribute: NSLayoutAttribute
         ) {
@@ -28,7 +33,7 @@ struct ConstraintsHelpers {
     }
 
     static func activateGreaterThanOrEqualConstraint(
-        on view: UIView,
+        on view: FlexibleView,
         attribute: NSLayoutAttribute,
         constantValue: CGFloat
         ) {
@@ -45,9 +50,9 @@ struct ConstraintsHelpers {
 
     static func createHeightEnforcingViewAndSetupConstraints(
         for space: VerticalFlexibleSpace,
-        in container: UIView
-        ) -> UIView {
-        let view = UIView()
+        in container: FlexibleView
+        ) -> FlexibleView {
+        let view = FlexibleView()
         container.addSubview(view)
         view.backgroundColor = .clear
         let from = space.from
@@ -62,9 +67,9 @@ struct ConstraintsHelpers {
 
     static func createWidthEnforcingViewAndSetupConstraints(
         for space: HorizontalFlexibleSpace,
-        in container: UIView
-        ) -> UIView {
-        let view = UIView()
+        in container: FlexibleView
+        ) -> FlexibleView {
+        let view = FlexibleView()
         container.addSubview(view)
         view.backgroundColor = .clear
         let from = space.from

@@ -7,6 +7,11 @@
 //
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 public struct VerticalFlexibleSpace {
     let from: LayoutYTarget
@@ -15,7 +20,7 @@ public struct VerticalFlexibleSpace {
 }
 
 public struct VerticalFlexibleSpaceConstructable {
-    
+
     let from: LayoutYTarget
     let to: LayoutYTarget
 

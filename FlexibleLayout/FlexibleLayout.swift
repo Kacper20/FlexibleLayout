@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(iOS)
+    import UIKit
+#else
+    import AppKit
+#endif
+
 public struct MinimalCoefficientSize {
     let coefficient: CGFloat
     let value: CGFloat
@@ -17,7 +23,7 @@ public struct Flexible {
 
     public static func verticalLayout(
         _ spaces: [VerticalFlexibleSpace],
-        in container: UIView,
+        in container: FlexibleView,
         coefficientSize: MinimalCoefficientSize? = nil
         ) {
         ensureInViewHierarchy(viewsProvidables: spaces, container: container)
@@ -47,7 +53,7 @@ public struct Flexible {
         } else {
             let firstItemSetup = firstItemSizeSetupGenerate(
                 coefficientSize: coefficientSize,
-                itemSetup: { (spacer: UIView, height: CGFloat) in
+                itemSetup: { (spacer: FlexibleView, height: CGFloat) in
                     ConstraintsHelpers.activateGreaterThanOrEqualConstraint(
                         on: spacer,
                         attribute: .height,
@@ -75,7 +81,7 @@ public struct Flexible {
 
     public static func horizontalLayout(
         _ spaces: [HorizontalFlexibleSpace],
-        in container: UIView,
+        in container: FlexibleView,
         coefficientSize: MinimalCoefficientSize? = nil
         ) {
         ensureInViewHierarchy(viewsProvidables: spaces, container: container)
@@ -105,7 +111,7 @@ public struct Flexible {
         } else {
             let firstItemSetup = firstItemSizeSetupGenerate(
                 coefficientSize: coefficientSize,
-                itemSetup: { (spacer: UIView, width: CGFloat) in
+                itemSetup: { (spacer: FlexibleView, width: CGFloat) in
                     ConstraintsHelpers.activateGreaterThanOrEqualConstraint(
                         on: spacer,
                         attribute: .width,
@@ -142,7 +148,7 @@ public struct Flexible {
         }
     }
 
-    private static func ensureInViewHierarchy(viewsProvidables: [InvolvedViewsProvidable], container: UIView) {
+    private static func ensureInViewHierarchy(viewsProvidables: [InvolvedViewsProvidable], container: FlexibleView) {
         for viewsProvidable in viewsProvidables {
             viewsProvidable.views
                 .filter { $0 != container && $0.superview == nil }
@@ -165,9 +171,9 @@ public struct Flexible {
     }
 
     private static func setupSizeDependentViews(
-        base: UIView,
-        other: UIView,
-        layoutAttributeGenerate: (UIView) -> NSLayoutAttribute,
+        base: FlexibleView,
+        other: FlexibleView,
+        layoutAttributeGenerate: (FlexibleView) -> NSLayoutAttribute,
         multiplier: CGFloat
         ) {
         NSLayoutConstraint(
@@ -183,7 +189,7 @@ public struct Flexible {
 
     private static func buildLayout<LayoutSpacer, Space: CoefficientProvidable>(
         spaces: [Space],
-        in container: UIView,
+        in container: FlexibleView,
         layoutItemGeneration: (Space) -> LayoutSpacer,
         dimensionSetup: (LayoutSpacer, LayoutSpacer, CGFloat) -> Void,
         firstItemSetup: ((LayoutSpacer, CGFloat) -> Void)? = nil
