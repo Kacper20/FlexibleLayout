@@ -19,8 +19,8 @@ struct GuidesHelpers {
     static func setupVerticalSpacingLayoutGuide(
         for space: VerticalFlexibleSpace,
         in container: FlexibleView
-        ) -> UILayoutGuide {
-        let spacingGuide = UILayoutGuide()
+        ) -> FlexibleLayoutGuide {
+        let spacingGuide = FlexibleLayoutGuide()
         container.addLayoutGuide(spacingGuide)
         spacingGuide.centerXAnchor.constraint(equalTo: space.from.view.centerXAnchor).isActive = true
         spacingGuide.topAnchor.constraint(equalTo: space.from.anchor).isActive = true
@@ -31,8 +31,8 @@ struct GuidesHelpers {
     static func setupHorizontalSpacingLayoutGuide(
         for space: HorizontalFlexibleSpace,
         in container: FlexibleView
-        ) -> UILayoutGuide {
-        let spacingGuide = UILayoutGuide()
+        ) -> FlexibleLayoutGuide {
+        let spacingGuide = FlexibleLayoutGuide()
         container.addLayoutGuide(spacingGuide)
         spacingGuide.centerYAnchor.constraint(equalTo: space.from.view.centerYAnchor).isActive = true
 

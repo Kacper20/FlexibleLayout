@@ -30,7 +30,7 @@ public struct Flexible {
         if #available(iOS 9.0, *) {
             let firstItemSetup = firstItemSizeSetupGenerate(
                 coefficientSize: coefficientSize,
-                itemSetup: { (spacer: UILayoutGuide, height: CGFloat) in
+                itemSetup: { (spacer: FlexibleLayoutGuide, height: CGFloat) in
                     spacer.heightAnchor.constraint(greaterThanOrEqualToConstant: height).isActive = true
                 }
             )
@@ -88,7 +88,7 @@ public struct Flexible {
         if #available(iOS 9.0, *) {
             let firstItemSetup = firstItemSizeSetupGenerate(
                 coefficientSize: coefficientSize,
-                itemSetup: { (spacer: UILayoutGuide, width: CGFloat) in
+                itemSetup: { (spacer: FlexibleLayoutGuide, width: CGFloat) in
                     spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: width).isActive = true
                 }
             )
@@ -158,9 +158,9 @@ public struct Flexible {
 
     @available(iOS 9.0, *)
     private static func setupSizeDependentAnchors(
-        base: UILayoutGuide,
-        other: UILayoutGuide,
-        dimensionAnchorGenerate: (UILayoutGuide) -> NSLayoutDimension,
+        base: FlexibleLayoutGuide,
+        other: FlexibleLayoutGuide,
+        dimensionAnchorGenerate: (FlexibleLayoutGuide) -> NSLayoutDimension,
         multiplier: CGFloat
     ) {
         dimensionAnchorGenerate(other).constraint(
@@ -173,7 +173,7 @@ public struct Flexible {
     private static func setupSizeDependentViews(
         base: FlexibleView,
         other: FlexibleView,
-        layoutAttributeGenerate: (FlexibleView) -> NSLayoutAttribute,
+        layoutAttributeGenerate: (FlexibleView) -> FlexibleLayoutAttribute,
         multiplier: CGFloat
         ) {
         NSLayoutConstraint(
@@ -194,7 +194,7 @@ public struct Flexible {
         dimensionSetup: (LayoutSpacer, LayoutSpacer, CGFloat) -> Void,
         firstItemSetup: ((LayoutSpacer, CGFloat) -> Void)? = nil
         ) {
-        let sortedSpaces = spaces.sorted(by: { $0.0.coefficient < $0.1.coefficient })
+        let sortedSpaces = spaces.sorted(by: { (first, second) in first.coefficient < second.coefficient })
         guard let firstConfiguration = sortedSpaces.first else { return }
         let minimalCoefficient = firstConfiguration.coefficient
         let first = layoutItemGeneration(firstConfiguration)

@@ -36,7 +36,7 @@ public struct FlexibleLayoutDSL {
     public var centerX: LayoutXTarget {
         return LayoutXTarget(kind: .centerX, view: view)
     }
-
+    #if os(iOS)
     public var leftMargin: LayoutXTarget {
         return LayoutXTarget(kind: .leftMargin, view: view)
     }
@@ -56,6 +56,7 @@ public struct FlexibleLayoutDSL {
     public var centerXWithinMargins: LayoutXTarget {
         return LayoutXTarget(kind: .centerXWithinMargins, view: view)
     }
+    #endif
 
     public var top: LayoutYTarget {
         return LayoutYTarget(kind: .top, view: view)

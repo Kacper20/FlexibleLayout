@@ -18,8 +18,8 @@ struct ConstraintsHelpers {
     private static func activateConstraint(
         fromView: FlexibleView,
         toView: FlexibleView,
-        fromAttribute: NSLayoutAttribute,
-        toAttribute: NSLayoutAttribute
+        fromAttribute: FlexibleLayoutAttribute,
+        toAttribute: FlexibleLayoutAttribute
         ) {
         NSLayoutConstraint(
             item: fromView,
@@ -34,7 +34,7 @@ struct ConstraintsHelpers {
 
     static func activateGreaterThanOrEqualConstraint(
         on view: FlexibleView,
-        attribute: NSLayoutAttribute,
+        attribute: FlexibleLayoutAttribute,
         constantValue: CGFloat
         ) {
         NSLayoutConstraint(
@@ -54,7 +54,12 @@ struct ConstraintsHelpers {
         ) -> FlexibleView {
         let view = FlexibleView()
         container.addSubview(view)
+        #if os(iOS)
         view.backgroundColor = .clear
+        #else
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.clear.cgColor
+        #endif
         let from = space.from
         let to = space.to
         activateConstraint(fromView: view, toView: container, fromAttribute: .width, toAttribute: .width)
@@ -71,19 +76,24 @@ struct ConstraintsHelpers {
         ) -> FlexibleView {
         let view = FlexibleView()
         container.addSubview(view)
+        #if os(iOS)
         view.backgroundColor = .clear
+        #else
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.clear.cgColor
+        #endif
         let from = space.from
         let to = space.to
         activateConstraint(fromView: view, toView: container, fromAttribute: .height, toAttribute: .height)
         activateConstraint(fromView: view, toView: space.from.view, fromAttribute: .centerY, toAttribute: .centerY)
-        let fromTargetAttribute: NSLayoutAttribute = space.from.isRtlSupportive ? .leading : .left
+        let fromTargetAttribute: FlexibleLayoutAttribute = space.from.isRtlSupportive ? .leading : .left
         activateConstraint(
             fromView: view,
             toView: from.view,
             fromAttribute: fromTargetAttribute,
             toAttribute: from.attribute
         )
-        let toTargetAttribute: NSLayoutAttribute = space.to.isRtlSupportive ? .trailing : .right
+        let toTargetAttribute: FlexibleLayoutAttribute = space.to.isRtlSupportive ? .trailing : .right
         activateConstraint(fromView: view, toView: to.view, fromAttribute: toTargetAttribute, toAttribute: to.attribute)
 
         return view

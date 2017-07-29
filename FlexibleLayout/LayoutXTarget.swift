@@ -24,11 +24,13 @@ public struct LayoutXTarget {
         case leading
         case trailing
         case centerX
+        #if os(iOS)
         case leftMargin
         case rightMargin
         case leadingMargin
         case trailingMargin
         case centerXWithinMargins
+        #endif
     }
 
     init(kind: Kind, view: FlexibleView) {
@@ -37,26 +39,38 @@ public struct LayoutXTarget {
     }
 
     var isRtlSupportive: Bool {
-        switch kind {
-        case .leading, .trailing, .leadingMargin, .trailingMargin:
+        if case .leading = kind, case .trailing = kind {
             return true
-        default: return false
         }
+        #if os(iOS)
+        if case .leadingMargin = kind, case .trailingMargin = kind {
+            return true
+        }
+        #endif
+        return false
     }
 
-    var attribute: NSLayoutAttribute {
+    var attribute: FlexibleLayoutAttribute {
         switch kind {
         case .left: return .left
         case .right: return .right
         case .leading: return .leading
         case .trailing: return .trailing
         case .centerX: return .centerX
+        default: break
+        }
+
+        #if os(iOS)
+        switch kind {
         case .leftMargin: return .leftMargin
         case .rightMargin: return .rightMargin
         case .leadingMargin: return .leadingMargin
         case .trailingMargin: return .trailingMargin
         case .centerXWithinMargins: return .centerXWithinMargins
+        default: break
         }
+        #endif
+        fatalError("Should never happen")
     }
 
     @available(iOS 9.0, *)
@@ -67,12 +81,19 @@ public struct LayoutXTarget {
         case .leading: return view.leadingAnchor
         case .trailing: return view.trailingAnchor
         case .centerX: return view.centerXAnchor
+        default: break
+        }
+        #if os(iOS)
+        switch kind {
         case .leftMargin: return view.layoutMarginsGuide.leftAnchor
         case .rightMargin: return view.layoutMarginsGuide.rightAnchor
         case .leadingMargin: return view.layoutMarginsGuide.leadingAnchor
         case .trailingMargin: return view.layoutMarginsGuide.trailingAnchor
         case .centerXWithinMargins: return view.layoutMarginsGuide.centerXAnchor
+        default: break
         }
+        #endif
+        fatalError("Should never happen")
     }
 
     public func to(_ other: LayoutXTarget) -> HorizontalFlexibleSpaceConstructable {

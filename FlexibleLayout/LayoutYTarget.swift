@@ -34,17 +34,24 @@ public struct LayoutYTarget {
         self.view = view
     }
 
-    var attribute: NSLayoutAttribute {
+    var attribute: FlexibleLayoutAttribute {
         switch kind {
         case .top: return .top
         case .bottom: return .bottom
         case .centerY: return .centerY
+        case .firstBaseline: return .firstBaseline
+        case .lastBaseline: return .lastBaseline
+        default: break
+        }
+        #if os(iOS)
+        switch kind {
         case .topMargin: return .topMargin
         case .bottomMargin: return .bottomMargin
         case .centerYWithinMargins: return .centerYWithinMargins
-        case .firstBaseline: return .firstBaseline
-        case .lastBaseline: return .lastBaseline
+        default: break
         }
+        #endif
+        fatalError("Should never happen")
     }
 
     @available(iOS 9.0, *)
@@ -53,12 +60,19 @@ public struct LayoutYTarget {
         case .top: return view.topAnchor
         case .bottom: return view.bottomAnchor
         case .centerY: return view.centerYAnchor
+        case .firstBaseline: return view.firstBaselineAnchor
+        case .lastBaseline: return view.lastBaselineAnchor
+        default: break
+        }
+        #if os (iOS)
+        switch kind {
         case .topMargin: return view.layoutMarginsGuide.topAnchor
         case .bottomMargin: return view.layoutMarginsGuide.bottomAnchor
         case .centerYWithinMargins: return view.layoutMarginsGuide.centerYAnchor
-        case .firstBaseline: return view.firstBaselineAnchor
-        case .lastBaseline: return view.lastBaselineAnchor
+        default: break
         }
+        #endif
+        fatalError("Should never happen")
     }
 
     public func to(_ other: LayoutYTarget) -> VerticalFlexibleSpaceConstructable {

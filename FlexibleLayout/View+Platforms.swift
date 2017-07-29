@@ -11,7 +11,16 @@ import Foundation
 #if os(iOS)
     import UIKit
     public typealias FlexibleView = UIView
+    @available(iOS 9.0, *)
+    public typealias FlexibleLayoutGuide = UILayoutGuide
+    public typealias FlexibleLayoutAttribute = NSLayoutAttribute
 #else
     import AppKit
     public typealias FlexibleView = NSView
+    public typealias FlexibleLayoutGuide = NSLayoutGuide
+    public typealias FlexibleLayoutAttribute = NSLayoutConstraint.Attribute
+#endif
+
+#if os(iOS)
+#else
 #endif
