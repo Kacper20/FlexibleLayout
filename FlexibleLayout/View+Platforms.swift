@@ -19,7 +19,7 @@ import Foundation
     public typealias FlexibleView = NSView
     @available(OSX 10.11, *)
     public typealias FlexibleLayoutGuide = NSLayoutGuide
-    public typealias FlexibleLayoutAttribute = NSLayoutAttribute
+    public typealias FlexibleLayoutAttribute = NSLayoutConstraint.Attribute
 #endif
 
 #if os(iOS)
