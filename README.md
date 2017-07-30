@@ -107,11 +107,14 @@ Then, your spacer views with coefficient 1 will resolve to at least 32 in height
 Because library supports iOS 8 it has two ways of creating empty spaces:
 - `UILayoutGuide` instances and layout anchors on iOS 9+
 - empty, non rendering views and `NSLayoutConstraint` API on iOS 8
+Same behavior exists on macOS and tvOS platforms.
 
 For every space you specify in layout call there is exactly one spacing object created along with constraints pinning your spacing objects to other views in layout.
 
 ## Requirements
 - iOS 8.0+
+- macOS 10.11+
+- tvOS 9.0+
 
 ## Author
 
