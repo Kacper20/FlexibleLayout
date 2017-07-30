@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if os(iOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 #else
     import AppKit
@@ -43,7 +43,7 @@ public struct LayoutYTarget {
         case .lastBaseline: return .lastBaseline
         default: break
         }
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         switch kind {
         case .topMargin: return .topMargin
         case .bottomMargin: return .bottomMargin
@@ -55,6 +55,7 @@ public struct LayoutYTarget {
     }
 
     @available(iOS 9.0, *)
+    @available(OSX 10.11, *)
     var anchor: NSLayoutYAxisAnchor {
         switch kind {
         case .top: return view.topAnchor
@@ -64,7 +65,7 @@ public struct LayoutYTarget {
         case .lastBaseline: return view.lastBaselineAnchor
         default: break
         }
-        #if os (iOS)
+        #if os(iOS) || os(tvOS)
         switch kind {
         case .topMargin: return view.layoutMarginsGuide.topAnchor
         case .bottomMargin: return view.layoutMarginsGuide.bottomAnchor

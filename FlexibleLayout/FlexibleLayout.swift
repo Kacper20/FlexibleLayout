@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-#if os(iOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 #else
     import AppKit
@@ -27,7 +26,7 @@ public struct Flexible {
         coefficientSize: MinimalCoefficientSize? = nil
         ) {
         ensureInViewHierarchy(viewsProvidables: spaces, container: container)
-        if #available(iOS 9.0, *) {
+        if #available(iOS 9.0, OSX 10.11, *) {
             let firstItemSetup = firstItemSizeSetupGenerate(
                 coefficientSize: coefficientSize,
                 itemSetup: { (spacer: FlexibleLayoutGuide, height: CGFloat) in
@@ -85,7 +84,7 @@ public struct Flexible {
         coefficientSize: MinimalCoefficientSize? = nil
         ) {
         ensureInViewHierarchy(viewsProvidables: spaces, container: container)
-        if #available(iOS 9.0, *) {
+        if #available(iOS 9.0, OSX 10.12, *) {
             let firstItemSetup = firstItemSizeSetupGenerate(
                 coefficientSize: coefficientSize,
                 itemSetup: { (spacer: FlexibleLayoutGuide, width: CGFloat) in
@@ -157,6 +156,7 @@ public struct Flexible {
     }
 
     @available(iOS 9.0, *)
+    @available(OSX 10.11, *)
     private static func setupSizeDependentAnchors(
         base: FlexibleLayoutGuide,
         other: FlexibleLayoutGuide,

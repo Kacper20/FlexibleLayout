@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if os(iOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 #else
     import AppKit
@@ -54,7 +54,7 @@ struct ConstraintsHelpers {
         ) -> FlexibleView {
         let view = FlexibleView()
         container.addSubview(view)
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         view.backgroundColor = .clear
         #else
         view.wantsLayer = true
@@ -76,7 +76,7 @@ struct ConstraintsHelpers {
         ) -> FlexibleView {
         let view = FlexibleView()
         container.addSubview(view)
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         view.backgroundColor = .clear
         #else
         view.wantsLayer = true

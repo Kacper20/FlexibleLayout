@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Flexible Layout tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>FlexibleLayout.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>BB27EE7B1F2BDC2100B15076</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB5F59F01F2E62CC0048B521</key>
 		<dict>
 			<key>primary</key>
 			<true/>

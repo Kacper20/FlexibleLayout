@@ -32,6 +32,18 @@
 		BB27EE8E1F2BDFF900B15076 /* FlexibleLayoutDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */; };
 		BB27EE901F2BE12900B15076 /* View+Platforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27EE8F1F2BE12900B15076 /* View+Platforms.swift */; };
 		BB27EE911F2BE15000B15076 /* View+Platforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27EE8F1F2BE12900B15076 /* View+Platforms.swift */; };
+		BB5F59F51F2E62CC0048B521 /* Flexible Layout tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = BB5F59F31F2E62CC0048B521 /* Flexible Layout tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB5F59F91F2E62DF0048B521 /* FlexibleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFD61F193E040062749D /* FlexibleLayout.swift */; };
+		BB5F59FA1F2E62DF0048B521 /* View+LayoutTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDC1F193EF40062749D /* View+LayoutTargets.swift */; };
+		BB5F59FB1F2E62DF0048B521 /* LayoutXTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFDE1F1943FC0062749D /* LayoutXTarget.swift */; };
+		BB5F59FC1F2E62DF0048B521 /* LayoutYTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE01F1944030062749D /* LayoutYTarget.swift */; };
+		BB5F59FD1F2E62DF0048B521 /* HorizontalFlexibleSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE51F19469F0062749D /* HorizontalFlexibleSpace.swift */; };
+		BB5F59FE1F2E62DF0048B521 /* VerticalFlexibleSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE71F1946CA0062749D /* VerticalFlexibleSpace.swift */; };
+		BB5F59FF1F2E62DF0048B521 /* ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFE91F194ECC0062749D /* ConstraintsHelpers.swift */; };
+		BB5F5A001F2E62DF0048B521 /* GuidesHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFEB1F194F0A0062749D /* GuidesHelpers.swift */; };
+		BB5F5A011F2E62DF0048B521 /* Spaces+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB26CFED1F1952E00062749D /* Spaces+Protocols.swift */; };
+		BB5F5A021F2E62DF0048B521 /* FlexibleLayoutDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */; };
+		BB5F5A031F2E62DF0048B521 /* View+Platforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27EE8F1F2BE12900B15076 /* View+Platforms.swift */; };
 		BBE199EC1F1A25E500D80A31 /* FlexibleLayoutDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +77,9 @@
 		BB27EE7E1F2BDC2100B15076 /* Flexible_Layout_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flexible_Layout_macOS.h; sourceTree = "<group>"; };
 		BB27EE7F1F2BDC2100B15076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB27EE8F1F2BE12900B15076 /* View+Platforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Platforms.swift"; sourceTree = "<group>"; };
+		BB5F59F11F2E62CC0048B521 /* Flexible Layout tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Flexible Layout tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB5F59F31F2E62CC0048B521 /* Flexible Layout tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flexible Layout tvOS.h"; sourceTree = "<group>"; };
+		BB5F59F41F2E62CC0048B521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBE199EB1F1A25E500D80A31 /* FlexibleLayoutDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleLayoutDSL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +106,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB5F59ED1F2E62CC0048B521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,6 +122,7 @@
 				BB26CFBE1F193C700062749D /* FlexibleLayout */,
 				BB26CFC91F193C710062749D /* FlexibleLayoutTests */,
 				BB27EE7D1F2BDC2100B15076 /* Flexible Layout macOS */,
+				BB5F59F21F2E62CC0048B521 /* Flexible Layout tvOS */,
 				BB26CFBD1F193C700062749D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +133,7 @@
 				BB26CFBC1F193C700062749D /* FlexibleLayout iOS.framework */,
 				BB26CFC51F193C700062749D /* FlexibleLayoutTests.xctest */,
 				BB27EE7C1F2BDC2100B15076 /* Flexible_Layout_macOS.framework */,
+				BB5F59F11F2E62CC0048B521 /* Flexible Layout tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +176,15 @@
 			path = "Flexible Layout macOS";
 			sourceTree = "<group>";
 		};
+		BB5F59F21F2E62CC0048B521 /* Flexible Layout tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				BB5F59F31F2E62CC0048B521 /* Flexible Layout tvOS.h */,
+				BB5F59F41F2E62CC0048B521 /* Info.plist */,
+			);
+			path = "Flexible Layout tvOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -168,6 +201,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB27EE801F2BDC2100B15076 /* Flexible_Layout_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB5F59EE1F2E62CC0048B521 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB5F59F51F2E62CC0048B521 /* Flexible Layout tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +270,24 @@
 			productReference = BB27EE7C1F2BDC2100B15076 /* Flexible_Layout_macOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		BB5F59F01F2E62CC0048B521 /* Flexible Layout tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB5F59F61F2E62CC0048B521 /* Build configuration list for PBXNativeTarget "Flexible Layout tvOS" */;
+			buildPhases = (
+				BB5F59EC1F2E62CC0048B521 /* Sources */,
+				BB5F59ED1F2E62CC0048B521 /* Frameworks */,
+				BB5F59EE1F2E62CC0048B521 /* Headers */,
+				BB5F59EF1F2E62CC0048B521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flexible Layout tvOS";
+			productName = "Flexible Layout tvOS";
+			productReference = BB5F59F11F2E62CC0048B521 /* Flexible Layout tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -254,6 +313,11 @@
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = 96TQV7B5LD;
 					};
+					BB5F59F01F2E62CC0048B521 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 96TQV7B5LD;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = BB26CFB61F193C700062749D /* Build configuration list for PBXProject "FlexibleLayout" */;
@@ -271,6 +335,7 @@
 				BB26CFBB1F193C700062749D /* FlexibleLayout iOS */,
 				BB26CFC41F193C700062749D /* FlexibleLayoutTests */,
 				BB27EE7B1F2BDC2100B15076 /* Flexible Layout macOS */,
+				BB5F59F01F2E62CC0048B521 /* Flexible Layout tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +356,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BB27EE7A1F2BDC2100B15076 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB5F59EF1F2E62CC0048B521 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,6 +429,24 @@
 				BB27EE911F2BE15000B15076 /* View+Platforms.swift in Sources */,
 				BB27EE861F2BDF9200B15076 /* View+LayoutTargets.swift in Sources */,
 				BB27EE8D1F2BDFF600B15076 /* Spaces+Protocols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB5F59EC1F2E62CC0048B521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB5F5A021F2E62DF0048B521 /* FlexibleLayoutDSL.swift in Sources */,
+				BB5F59FC1F2E62DF0048B521 /* LayoutYTarget.swift in Sources */,
+				BB5F59FD1F2E62DF0048B521 /* HorizontalFlexibleSpace.swift in Sources */,
+				BB5F5A001F2E62DF0048B521 /* GuidesHelpers.swift in Sources */,
+				BB5F59F91F2E62DF0048B521 /* FlexibleLayout.swift in Sources */,
+				BB5F59FE1F2E62DF0048B521 /* VerticalFlexibleSpace.swift in Sources */,
+				BB5F59FF1F2E62DF0048B521 /* ConstraintsHelpers.swift in Sources */,
+				BB5F59FB1F2E62DF0048B521 /* LayoutXTarget.swift in Sources */,
+				BB5F5A031F2E62DF0048B521 /* View+Platforms.swift in Sources */,
+				BB5F59FA1F2E62DF0048B521 /* View+LayoutTargets.swift in Sources */,
+				BB5F5A011F2E62DF0048B521 /* Spaces+Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,12 +654,12 @@
 				INFOPLIST_FILE = "Flexible Layout macOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.harasim.Flexible-Layout-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -596,12 +686,56 @@
 				INFOPLIST_FILE = "Flexible Layout macOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.harasim.Flexible-Layout-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BB5F59F71F2E62CC0048B521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 96TQV7B5LD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Flexible Layout tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.harasim.Flexible-Layout-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		BB5F59F81F2E62CC0048B521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 96TQV7B5LD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Flexible Layout tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.harasim.Flexible-Layout-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -640,6 +774,15 @@
 			buildConfigurations = (
 				BB27EE821F2BDC2100B15076 /* Debug */,
 				BB27EE831F2BDC2100B15076 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB5F59F61F2E62CC0048B521 /* Build configuration list for PBXNativeTarget "Flexible Layout tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB5F59F71F2E62CC0048B521 /* Debug */,
+				BB5F59F81F2E62CC0048B521 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

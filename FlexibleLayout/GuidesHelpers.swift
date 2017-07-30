@@ -7,13 +7,14 @@
 //
 
 import Foundation
-#if os(iOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 #else
     import AppKit
 #endif
 
 @available(iOS 9.0, *)
+@available(OSX 10.11, *)
 struct GuidesHelpers {
 
     static func setupVerticalSpacingLayoutGuide(

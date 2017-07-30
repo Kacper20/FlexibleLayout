@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if os(iOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 #else
     import AppKit
@@ -24,7 +24,7 @@ public struct LayoutXTarget {
         case leading
         case trailing
         case centerX
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         case leftMargin
         case rightMargin
         case leadingMargin
@@ -42,7 +42,7 @@ public struct LayoutXTarget {
         if case .leading = kind, case .trailing = kind {
             return true
         }
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         if case .leadingMargin = kind, case .trailingMargin = kind {
             return true
         }
@@ -60,7 +60,7 @@ public struct LayoutXTarget {
         default: break
         }
 
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         switch kind {
         case .leftMargin: return .leftMargin
         case .rightMargin: return .rightMargin
@@ -74,6 +74,7 @@ public struct LayoutXTarget {
     }
 
     @available(iOS 9.0, *)
+    @available(OSX 10.11, *)
     var anchor: NSLayoutXAxisAnchor {
         switch kind {
         case .left: return view.leftAnchor
