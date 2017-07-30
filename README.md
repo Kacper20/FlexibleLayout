@@ -2,7 +2,7 @@
 FlexibleLayout is a helper library for building flexible spaces between views of your layout in a declarative way.
 Uses auto-layout underneath and you can use it along with your favorite constraint helper libraries, or pure constraint APIs.
 
-It's currently available in version `0.1.0` which requires Swift 3.
+It's currently available in version `0.1.0` which requires Swift 3. It also works well with Swift 3.2. For Swift 4.0 support there is a branch `swift_4`, which is updated if needed with every beta release of Xcode.
 
 If you have any feedback or questions about the library - I would love to hear that and help you! Please [open an issue](https://github.com/Kacper20/FlexibleLayout/issues/new) on GitHub.
 
